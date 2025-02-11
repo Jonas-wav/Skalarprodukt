@@ -2,30 +2,30 @@ import java.util.Arrays;
 
 public class vector {
 
-    // Method to calculate the scalar product of two vectors
+    // Methode zur Berechnung des Skalarprodukts zweier Vektoren
     public static int scalarProduct(int[] v1, int[] v2) {
         int scalar = 0;
 
-        // Loop through each element of the vectors
+        // Schleife durch jedes Element der Vektoren
         for (int i = 0; i < v1.length; ++i) {
-            scalar += v1[i] * v2[i]; // Multiply corresponding elements and add to scalar
+            scalar += v1[i] * v2[i]; // Multipliziere entsprechende Elemente und addiere zum Skalar
         };
 
-        return scalar; // Return the scalar product
+        return scalar; // Rückgabe des Skalarprodukts
     }
 
-    // Method to sort a vector using bubble sort algorithm
+    // Methode zum Sortieren eines Vektors mit dem Bubble-Sort-Algorithmus
     public static void sort(int[] v1) {
         int a;
         boolean swap = true;
         int counter = 0;
 
-        // Continue sorting until no swaps are made
+        // Sortieren fortsetzen, bis keine Vertauschungen mehr vorgenommen werden
         while (swap) {
             swap = false;
-            // Loop through the vector
+            // Schleife durch den Vektor
             for (int i = 0; i < v1.length - 1 - counter; ++i) {
-                // Swap elements if they are in the wrong order
+                // Elemente vertauschen, wenn sie in der falschen Reihenfolge sind
                 if (v1[i] > v1[i + 1]) {
                     a = v1[i];
                     v1[i] = v1[i + 1];
@@ -33,19 +33,26 @@ public class vector {
                     swap = true;
                 }
             }
-            counter++; // Increment counter to reduce the range of comparison
+            counter++; // Zähler erhöhen, um den Vergleichsbereich zu reduzieren
         }
     }
 
-    // Main method to test the functionality
-    public static void main(String[] args) {
-        int[] v1 = {1, 2, 3, 34, 56, 54, 5, 0}; // Initialize vector v1
-        int[] v2 = {4, 5, 6, 7}; // Initialize vector v2
-        System.out.println(Arrays.toString(v1)); // Print original vector v1
-        sort(v1); // Sort vector v1
-        System.out.println(Arrays.toString(v1)); // Print sorted vector v1
+    // Einführung java.util.Arrays.sort
+    public static int[] sort2(int[] v1){
+        int[] v3 = Arrays.copyOf(v1, v1.length);
+        Arrays.sort(v3);
+        return v3;
+    }
 
-        // Uncomment the following line to print the scalar product of v1 and v2
+    // Hauptmethode zum Testen der Funktionalität
+    public static void main(String[] args) {
+        int[] v1 = {1, 2, 3, 34, 56, 54, 5, 0}; // Initialisierung des Vektors v1
+        int[] v2 = {4, 5, 6, 7}; // Initialisierung des Vektors v2
+        System.out.println(Arrays.toString(v1)); // Originalen Vektor v1 ausgeben
+        sort(v1); // Vektor v1 sortieren
+        System.out.println(Arrays.toString(v1)); // Sortierten Vektor v1 ausgeben
+
+        // Die folgende Zeile auskommentieren, um das Skalarprodukt von v1 und v2 auszugeben
         // System.out.println("Skalarprodukt="+scalarProduct(v1, v2));
     }
 }
